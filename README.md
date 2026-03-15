@@ -142,60 +142,60 @@ A família **T3** (uso geral, burstable performance) atende com precisão ao per
 ---
 
 ### 📊 Comparação de Custos — AWS Pricing Calculator
-
+ 
 #### Estimativa On-Demand 100% · Linux · 730h/mês
-
+ 
 | Componente | São Paulo `sa-east-1` | N. Virgínia `us-east-1` |
 |------------|:---------------------:|:-----------------------:|
-| EC2 `t3.micro` (730h) | ~USD 12,85/mês | ~USD 8,35/mês |
-| EBS gp2 50 GB | ~USD 5,50/mês | ~USD 4,00/mês |
-| **Total mensal** | **~USD 18,35** | **~USD 12,35** |
-| **Total anual** | **~USD 220,20** | **~USD 148,20** |
-| **Diferença** | +48,6% mais caro | — referência |
-
-> ⚠️ *Valores estimados via [AWS Pricing Calculator](https://calculator.aws). Preços estão sujeitos a alteração. Consulte sempre os valores atuais antes de provisionar.*
-
+| EC2 `t3.micro` (730h) | USD 12,26/mês | USD 7,59/mês |
+| EBS gp2 50 GB | USD 9,50/mês | USD 5,00/mês |
+| **Total mensal** | **USD 21,76** | **USD 12,59** |
+| **Total anual** | **USD 261,12** | **USD 151,08** |
+| **Diferença** | +72,8% mais caro | — referência |
+ 
+> *Valores obtidos via [AWS Pricing Calculator](https://calculator.aws) em março/2026. Preços estão sujeitos a alteração.*
+ 
 #### Tabela de trade-offs
-
+ 
 | Critério | São Paulo `sa-east-1` | N. Virgínia `us-east-1` |
 |----------|:---------------------:|:-----------------------:|
-| Custo mensal | USD 18,35 | USD 12,35 ✅ |
+| Custo mensal | USD 21,76 | USD 12,59 ✅ |
 | Latência (sensores BR) | < 20 ms ✅ | ~120–150 ms ❌ |
 | Conformidade LGPD | ✅ Total | ⚠️ Condicionada |
 | Armazenamento exterior | ❌ Proibido* | ❌ Proibido* |
 | Portfólio de serviços | Menor | Maior ✅ |
 | Disponibilidade de AZs | 3 AZs | 6 AZs ✅ |
-
+ 
 *Conforme restrição legal explicitada no enunciado.
-
+ 
 ---
-
+ 
 ### ✅ Decisão Final e Justificativa Técnica
-
+ 
 **Região escolhida: São Paulo `sa-east-1`**
-
-Embora a Virgínia do Norte apresente custo ~48,6% inferior (~USD 6/mês de diferença), a escolha tecnicamente correta e juridicamente obrigatória é a **Região São Paulo**, pelos seguintes fundamentos:
-
+ 
+Embora a Virgínia do Norte apresente custo ~72,8% inferior (~USD 9,17/mês de diferença), a escolha tecnicamente correta e juridicamente obrigatória é a **Região São Paulo**, pelos seguintes fundamentos:
+ 
 #### 1. Restrição Legal Explícita
 O enunciado do projeto especifica: *"há restrições legais para armazenamento no exterior"*. Esta cláusula **inviabiliza juridicamente** qualquer opção fora do Brasil, independentemente do custo.
-
+ 
 #### 2. Conformidade com a LGPD (Lei 13.709/2018)
 O artigo 33 da LGPD estabelece que a transferência internacional de dados pessoais só é permitida mediante condições específicas, incluindo reconhecimento pelo país receptor de nível de proteção adequado pela ANPD, ou celebração de cláusulas contratuais específicas. Para dados operacionais de uma fazenda brasileira, manter os dados em território nacional **elimina completamente o risco regulatório**.
-
+ 
 #### 3. Latência Operacional
 Os sensores da fazenda estão no Brasil. A latência estimada de 120–150ms para a Virgínia vs. <20ms para São Paulo pode comprometer:
 - A confiabilidade da recepção de dados de sensores em tempo real
 - A responsividade da API para decisões agronômicas urgentes
 - A qualidade das predições dependentes de dados recentes
-
+ 
 #### 4. Soberania de Dados
 Dados de produtividade agrícola podem ter relevância estratégica e setorial. Mantê-los em território nacional garante soberania e conformidade com regulações futuras do agronegócio brasileiro.
-
+ 
 #### 5. Custo-Benefício Real
-A diferença de ~USD 6/mês (≈R$30/mês) elimina riscos regulatórios, latência operacional e complexidade jurídica. O custo adicional é amplamente justificado.
-
+A diferença de ~USD 9,17/mês (≈R$46/mês) elimina riscos regulatórios, latência operacional e complexidade jurídica. O custo adicional é amplamente justificado.
+ 
 > **Conclusão**: A Virgínia é mais barata economicamente, mas São Paulo é a única opção viável do ponto de vista técnico, operacional e jurídico para este projeto.
-
+ 
 ---
 
 ## 🎥 Vídeos do Projeto
